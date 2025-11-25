@@ -93,7 +93,7 @@
                     <div class="mt-8 flex flex-wrap gap-4">
                         <button wire:click.prevent="navigate('projects')"
                             class="inline-flex items-center px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-md shadow dark:bg-indigo-600 dark:hover:bg-indigo-700">Télécharger mon CV</button>
-                        <a href="#contact" wire:click.prevent="navigate('contact')"
+                        <a href="#contact" data-section="contact"
                             class="inline-flex items-center px-4 py-2 bg-transparent border border-gray-700 text-gray-700 rounded-md hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800/30">Me
                             contacter</a>
                     </div>
@@ -101,7 +101,7 @@
 
                 <div class="flex justify-center lg:justify-end">
                     <div
-                        class="w-70 h-70 rounded-full bg-gradient-to-br from-gray-700 to-gray-500 flex items-center justify-center text-4xl font-bold text-white shadow-xl dark:from-indigo-700 dark:to-sky-500">
+                        class="w-70 h-70 rounded-full from-gray-700 to-gray-500 flex items-center justify-center text-4xl font-bold text-white shadow-xl dark:from-indigo-700 dark:to-sky-500">
                         <img src="{{ asset('images/bobo.png') }}" alt="" class="rounded-full">
                     </div>
                 </div>
@@ -109,10 +109,10 @@
         </section>
 
         {{-- ABOUT --}}
-        <section id="about" data-section class="mt-12 py-24 bg-gray-50 dark:bg-slate-950/50">
+        <section id="about" data-section class="py-16 bg-gray-50 dark:bg-slate-950/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold mb-6 text-gray-900 dark:text-white">À propos</h2>
-                <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">À propos</h2>
                     <p>Je suis développeur full-stack avec une préférence pour les stacks PHP modernes. J'apprécie la
                         simplicité, les interfaces réactives et une UX soignée.</p>
                     <p>Compétences : Laravel, Livewire, Tailwind CSS, JS, tests, déploiement CI/CD.</p>
@@ -121,9 +121,9 @@
         </section>
 
         {{-- PROJECTS --}}
-        <section id="projects" data-section class="py-20 bg-white dark:bg-slate-900">
+        <section id="projects" data-section class="py-16 bg-white dark:bg-slate-900">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
+                <div class="text-center mb-8">
                     <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Mes Projets</h2>
                     <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Découvrez une sélection de mes
                         réalisations récentes, alliant innovation technique et design soigné.</p>
@@ -179,17 +179,18 @@
                         </div>
                     </div>
 
-                    <!-- Répétez le même pattern pour les autres cartes de projet -->
                 </div>
             </div>
         </section>
 
         {{-- SKILLS --}}
-        <section id="skills" class="mt-8 py-16 bg-white dark:bg-slate-900">
+        <section id="skills" class="py-24 bg-white dark:bg-slate-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-2xl font-bold mb-2 text-gray-900 dark:text-white">Compétences</h2>
-                <p class="text-gray-600 dark:text-gray-400 mb-6 max-w-2xl">Voici un aperçu des compétences que j'utilise
-                    régulièrement dans mes projets.</p>
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Compétences</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Voici un aperçu des compétences que j'utilise
+                        régulièrement dans mes projets.</p>
+                </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Skill item -->
                     <div class="p-4 bg-white border border-gray-200 rounded-lg dark:bg-slate-800 dark:border-gray-700">
@@ -211,17 +212,11 @@
         </section>
 
         {{-- EXPERIENCE --}}
-        <section id="experience" class="py-24 px-6 bg-gray-50 dark:bg-slate-950">
+        <section id="experience" class="py-16 px-6 bg-gray-50 dark:bg-slate-950">
             <div class="max-w-7xl mx-auto">
                 <div class="mb-20">
-                    <div class="flex items-center justify-center gap-3 mb-8">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                            class="text-gray-700 dark:text-indigo-600">
-                            <circle cx="12" cy="8" r="6"></circle>
-                            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"></path>
-                        </svg>
-                        <h3 class="text-3xl font-bold text-gray-900 dark:text-white">Certifications</h3>
+                    <div class="text-center mb-8">
+                        <h3 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Certifications</h3>
                     </div>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         <div
@@ -254,7 +249,7 @@
         </section>
 
         {{-- CONTACT --}}
-        <section id="contact" data-section class="mt-8 py-16 bg-white dark:bg-slate-900">
+        <section id="contact" data-section class="py-16 bg-white dark:bg-slate-900">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <h2 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Contact</h2>
                 <div
@@ -313,7 +308,7 @@
                         <div class="space-y-4">
                             <div
                                 class="p-4 bg-gray-50 border border-gray-200 rounded-lg dark:bg-slate-900 dark:border-gray-700">
-                                <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Contact direct</h3>
+                                <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Réseaux sociaux</h3>
                                 <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Vous pouvez aussi me joindre
                                     directement via les informations suivantes :</p>
                                 <ul class="mt-3 space-y-4 text-sm text-gray-700 dark:text-gray-300">
@@ -327,6 +322,16 @@
                                         <a href="tel:+33123456789"
                                             class="text-gray-900 hover:text-gray-700 dark:text-indigo-400 dark:hover:text-indigo-300">+224
                                             625 08 11 46</a>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <flux:icon.linkedin />
+                                        <a href="https://www.linkedin.com/in/mamadou-bobo-diallo-5a04a3310/"
+                                            class="text-gray-900 hover:text-gray-700 dark:text-indigo-400 dark:hover:text-indigo-300">https://www.linkedin.com/in/mamadou-bobo-diallo-5a04a3310/</a>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <flux:icon.github />
+                                        <a href="https://github.com/MBD1236"
+                                            class="text-gray-900 hover:text-gray-700 dark:text-indigo-400 dark:hover:text-indigo-300">https://github.com/MBD1236</a>
                                     </li>
                                 </ul>
                             </div>
@@ -365,9 +370,9 @@
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">Me suivre</h4>
-                    <div class="flex gap-3"><a href="https://github.com/Foula34" target="_blank"
+                    <div class="flex gap-3"><a href="https://github.com/MBD1236" target="_blank"
                             rel="noopener noreferrer" aria-label="GitHub"
-                            class="p-3 rounded-xl transition-all duration-300 hover:-translate-y-1 bg-slate-800 text-gray-400 hover:bg-slate-700 hover:text-white"><svg
+                            class="p-3 rounded-xl transition-all duration-300 hover:-translate-y-1 bg-slate-800 text-gray-200 hover:bg-slate-700 hover:text-white"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-github ">

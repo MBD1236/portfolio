@@ -15,6 +15,17 @@
                 <flux:navlist.group :heading="__('Platform')" class="grid">
                     <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                 </flux:navlist.group>
+                <flux:navlist.group :heading="__('Configuration')" class="grid">
+                    <flux:navlist.item icon="user-circle" :href="route('admin.about.index')" :current="request()->routeIs('admin/about.index')" wire:navigate>{{ __('A propos') }}</flux:navlist.item>
+                    <flux:navlist.item icon="academic-cap" :href="route('admin.education.index')" :current="request()->routeIs('admin.education.index')" wire:navigate>{{ __('Etudes') }}</flux:navlist.item>
+                    <flux:navlist.item icon="briefcase" :href="route('admin.experience.index')" :current="request()->routeIs('admin.experience.index')" wire:navigate>{{ __('Expériences') }}</flux:navlist.item>
+                    <flux:navlist.item icon="tag" :href="route('admin.categories.index')" :current="request()->routeIs('admin.categories.index')" wire:navigate>{{ __('Catégories') }}</flux:navlist.item>
+                    <flux:navlist.item icon="sparkles" :href="route('admin.skills.index')" :current="request()->routeIs('admin.skills.index')" wire:navigate>{{ __('Compétences') }}</flux:navlist.item>
+                    <flux:navlist.item icon="cpu-chip" :href="route('admin.technologies.index')" :current="request()->routeIs('admin.technologies.index')" wire:navigate>{{ __('Technologies') }}</flux:navlist.item>
+                    <flux:navlist.item icon="rectangle-group" :href="route('admin.projects.index')" :current="request()->routeIs('admin.projects.index')" wire:navigate>{{ __('Projets') }}</flux:navlist.item>
+                    <flux:navlist.item icon="check-badge" :href="route('admin.certifications.index')" :current="request()->routeIs('admin.certifications.index')" wire:navigate>{{ __('Certifications') }}</flux:navlist.item>
+                    <flux:navlist.item icon="envelope" :href="route('admin.contacts.index')" :current="request()->routeIs('admin.contacts.index')" wire:navigate>{{ __('Contacts') }}</flux:navlist.item>
+                </flux:navlist.group>
             </flux:navlist>
 
             <flux:spacer />
@@ -129,5 +140,6 @@
         {{ $slot }}
 
         @fluxScripts
+        <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
     </body>
 </html>
