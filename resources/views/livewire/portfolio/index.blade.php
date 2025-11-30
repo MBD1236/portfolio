@@ -7,7 +7,7 @@
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-4">
                     <a href="#" class="text-xl font-semibold text-gray-900 dark:text-indigo-300">MBD</a>
-                    <p class="hidden sm:block text-sm text-gray-600 dark:text-gray-400">Développeur web fullstack
+                    <p class="hidden sm:block text-sm text-gray-600 dark:text-gray-400">{{ $about->title }}
                     </p>
                 </div>
 
@@ -15,8 +15,13 @@
                     <a href="#home" data-section="home"
                         class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30">Accueil</a>
                     <a href="#about" data-section="about"
-                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30">À
-                        propos</a>
+                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30">Àpropos</a>
+                    <a href="#education" data-section="education"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30">Etudes</a>
+                    <a href="#experience" data-section="experience"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30">Expériences</a>
+                    <a href="#skills" data-section="skills"
+                        class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30">Compétences</a>
                     <a href="#projects" data-section="projects"
                         class="px-3 py-2 rounded-md text-sm font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30">Projets</a>
                     <a href="#contact" data-section="contact"
@@ -59,6 +64,15 @@
                 <a href="#about" data-section="about"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30"
                     onclick="Livewire.emit('closeMobileMenu')">À propos</a>
+                <a href="#education" data-section="education"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30"
+                    onclick="Livewire.emit('closeMobileMenu')">Etudes</a>
+                <a href="#experience" data-section="experience"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30"
+                    onclick="Livewire.emit('closeMobileMenu')">Expériences</a>
+                <a href="#skills" data-section="skill"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30"
+                    onclick="Livewire.emit('closeMobileMenu')">Compétences</a>
                 <a href="#projects" data-section="projects"
                     class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-gray-800/30"
                     onclick="Livewire.emit('closeMobileMenu')">Projets</a>
@@ -83,16 +97,17 @@
         <section id="home" data-section class="py-24">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div>
-                    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white">Mamadou
-                        Bobo DIALLO</h1>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight text-gray-900 dark:text-white">{{
+                        $about->name }}</h1>
                     <p class="mt-4 text-lg text-gray-700 dark:text-gray-300 max-w-prose">Passionné par la création
                         d'expériences numériques exceptionnelles, je développe des applications web modernes et
                         performantes avec un souci constant de la qualité et de l'innovation.
                     </p>
 
                     <div class="mt-8 flex flex-wrap gap-4">
-                        <button wire:click.prevent="navigate('projects')"
-                            class="inline-flex items-center px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-md shadow dark:bg-indigo-600 dark:hover:bg-indigo-700">Télécharger mon CV</button>
+                        <a href="{{ asset('storage/' . $about->cv_file) }}" download
+                            class="inline-flex items-center px-4 py-2 bg-gray-900 hover:bg-gray-800 text-white rounded-md shadow dark:bg-indigo-600 dark:hover:bg-indigo-700">Télécharger
+                            mon CV</a>
                         <a href="#contact" data-section="contact"
                             class="inline-flex items-center px-4 py-2 bg-transparent border border-gray-700 text-gray-700 rounded-md hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-800/30">Me
                             contacter</a>
@@ -102,7 +117,7 @@
                 <div class="flex justify-center lg:justify-end">
                     <div
                         class="w-70 h-70 rounded-full from-gray-700 to-gray-500 flex items-center justify-center text-4xl font-bold text-white shadow-xl dark:from-indigo-700 dark:to-sky-500">
-                        <img src="{{ asset('images/bobo.png') }}" alt="" class="rounded-full">
+                        <img src="/storage/{{ $about->profile_image }}" alt="Ma photo" class="rounded-full">
                     </div>
                 </div>
             </div>
@@ -112,13 +127,107 @@
         <section id="about" data-section class="py-16 bg-gray-50 dark:bg-slate-950/50">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8">
-                    <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">À propos</h2>
-                    <p>Je suis développeur full-stack avec une préférence pour les stacks PHP modernes. J'apprécie la
-                        simplicité, les interfaces réactives et une UX soignée.</p>
-                    <p>Compétences : Laravel, Livewire, Tailwind CSS, JS, tests, déploiement CI/CD.</p>
+                    <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">À propos de moi</h2>
+                    <p>{{ $about->bio }}</p>
                 </div>
             </div>
         </section>
+
+
+        {{-- EDUCATION --}}
+        <section id="education" data-section class="py-16 bg-white dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Parcours scolaire</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300">Mon parcours académique</p>
+                </div>
+
+                <div class="space-y-6">
+                    @foreach ($educations as $edu)
+                    <div class="p-6 border border-gray-200 rounded-lg dark:bg-slate-800 dark:border-gray-700">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                {{ $edu->school }}
+                            </h3>
+                            <span class="text-sm text-gray-600 dark:text-gray-400">
+                                {{ $edu->start_year }} - {{ $edu->end_year ?? 'En cours' }}
+                            </span>
+                        </div>
+                        <p class="mt-2 text-gray-700 dark:text-gray-300">{{ $edu->degree }}</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">{{ $edu->description }}</p>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+
+
+        {{-- EXPERIENCE --}}
+        <section id="experience" data-section class="py-16 bg-gray-50 dark:bg-slate-950">
+            <div class="max-w-7xl mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Expériences professionnelles
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300">Mes expériences dans le monde professionnel</p>
+                </div>
+
+                <div class="space-y-6">
+                    @foreach ($experiences as $exp)
+                    <div class="p-6 border border-gray-200 rounded-lg dark:bg-slate-800 dark:border-gray-700">
+                        <div class="flex justify-between items-center">
+                            <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                {{ $exp->title }} — {{ $exp->company }}
+                            </h3>
+
+                            <span class="text-sm text-gray-600 dark:text-gray-400">
+                                {{ $exp->start_date }} - {{ $exp->end_date ?? 'Aujourd\'hui' }}
+                            </span>
+                        </div>
+
+                        <p class="mt-2 text-gray-700 dark:text-gray-300">{{ $exp->experience_type }} — {{ $exp->location
+                            }}</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">{{ $exp->description }}</p>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+
+        {{-- SKILLS --}}
+        <section id="skills" data-section class="py-24 bg-white dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Compétences</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Voici un aperçu des
+                        compétences que j'utilise
+                        régulièrement dans mes projets.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Skill item -->
+                    @foreach ($competences as $competence)
+                    <div class="p-4 bg-white border border-gray-200 rounded-lg dark:bg-slate-800 dark:border-gray-700">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-sm font-semibold text-gray-900 dark:text-white">{{ $competence->name }}
+                                </h3>
+                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">{{ $competence->category->name
+                                    }}</p>
+                            </div>
+                            <div class="text-sm font-medium text-gray-700 dark:text-gray-200">{{ $competence->level }}%
+                            </div>
+                        </div>
+                        <div class="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
+                            <div class="h-2 bg-gray-800 dark:bg-indigo-500" style="width:{{ $competence->level }}%">
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
 
         {{-- PROJECTS --}}
         <section id="projects" data-section class="py-16 bg-white dark:bg-slate-900">
@@ -129,31 +238,30 @@
                         réalisations récentes, alliant innovation technique et design soigné.</p>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
-                    <!-- Project cards - j'ai harmonisé les couleurs des boutons -->
+                    @foreach ($projets as $projet)
                     <div
                         class="bg-white border border-gray-200 text-gray-900 flex flex-col gap-6 rounded-xl group overflow-hidden hover:shadow-lg transition-all duration-300 dark:bg-slate-800 dark:border-gray-700 dark:text-gray-100">
                         <div class="aspect-video overflow-hidden">
-                            <img src="https://images.unsplash.com/photo-1657812159075-7f0abd98f7b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxlLWNvbW1lcmNlJTIwd2Vic2l0ZXxlbnwxfHx8fDE3NTczOTg2NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-                                alt="Site E-commerce"
+                            <img src="/storage/{{ $projet->thimbnail }}" alt="Photo du projet"
                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
-                        <div class="px-6 pt-6">
-                            <h4 class="text-xl font-semibold text-gray-900 dark:text-white">Site E-commerce</h4>
-                            <p class="text-gray-600 dark:text-gray-300 text-base mt-2">Plateforme de vente en ligne
-                                moderne avec panier, paiement et gestion des commandes.</p>
+                        <div class="px-6 pt-2">
+                            <h4 class="text-xl font-semibold text-gray-900 dark:text-white">{{ $projet->title }}</h4>
+                            <p class="text-gray-600 dark:text-gray-300 text-base mt-2">{{ $projet->description }}</p>
                         </div>
                         <div class="px-6">
                             <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-200">React</span>
-                                <span
-                                    class="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-200">Node.js</span>
-                                <span
-                                    class="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-200">MongoDB</span>
+                                @foreach ($projet->technologies as $techno)
+                                <span class="inline-flex items-center rounded-md bg-gray-100 px-2 py-1 text-xs font-medium 
+                                        text-gray-800 dark:bg-gray-700 dark:text-gray-200">
+                                    {{ $techno->name }}
+                                </span>
+                                @endforeach
                             </div>
+
                         </div>
                         <div class="px-6 pb-6 flex gap-2">
-                            <a href="#" target="_blank" rel="noopener noreferrer"
+                            <a href="{{ $projet->github_url }}" target="_blank" rel="noopener noreferrer"
                                 class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium border border-gray-300 bg-white text-gray-700 rounded-md hover:bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-600 flex-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -165,7 +273,7 @@
                                 </svg>
                                 Code
                             </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer"
+                            <a href="{{ $projet->demo_url }}" target="_blank" rel="noopener noreferrer"
                                 class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium bg-gray-900 text-white rounded-md hover:bg-gray-800 dark:bg-indigo-600 dark:hover:bg-indigo-700 flex-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                     fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -178,71 +286,60 @@
                             </a>
                         </div>
                     </div>
+                    @endforeach
 
                 </div>
             </div>
         </section>
 
-        {{-- SKILLS --}}
-        <section id="skills" class="py-24 bg-white dark:bg-slate-900">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-8">
-                    <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Compétences</h2>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Voici un aperçu des compétences que j'utilise
-                        régulièrement dans mes projets.</p>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Skill item -->
-                    <div class="p-4 bg-white border border-gray-200 rounded-lg dark:bg-slate-800 dark:border-gray-700">
-                        <div class="flex justify-between items-start">
-                            <div>
-                                <h3 class="text-sm font-semibold text-gray-900 dark:text-white">Laravel</h3>
-                                <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Développement d'APIs,
-                                    architecture MVC, Eloquent, queues et tests.</p>
-                            </div>
-                            <div class="text-sm font-medium text-gray-700 dark:text-gray-200">90%</div>
-                        </div>
-                        <div class="mt-3 h-2 bg-gray-200 rounded-full overflow-hidden dark:bg-gray-700">
-                            <div class="h-2 bg-gray-800 dark:bg-indigo-500" style="width:90%"></div>
-                        </div>
-                    </div>
-                    <!-- Répétez pour les autres compétences -->
-                </div>
-            </div>
-        </section>
-
-        {{-- EXPERIENCE --}}
-        <section id="experience" class="py-16 px-6 bg-gray-50 dark:bg-slate-950">
+        {{-- CERTIFICATS --}}
+        <section id="certification" data-section class="py-16 px-6 bg-gray-50 dark:bg-slate-950">
             <div class="max-w-7xl mx-auto">
                 <div class="mb-20">
                     <div class="text-center mb-8">
-                        <h3 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Certifications</h3>
+                        <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Certifications</h2>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Découvrez les certifications que j’ai obtenues au fil de mes expériences et formations, témoins de mon engagement et de ma curiosité.</p>
                     </div>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                        @foreach ($certifications as $certification)
                         <div
                             class="p-6 rounded-xl text-center transition-all hover:-translate-y-1 bg-white border border-gray-200 hover:shadow-xl dark:bg-slate-900 dark:border-gray-800">
-                            <h4 class="font-bold mb-2 text-gray-900 dark:text-white">Meta Frontend Developer</h4>
-                            <p class="text-gray-700 dark:text-indigo-500 text-sm font-medium mb-1">Coursera</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">2025</p>
+                            <h4 class="font-bold mb-2 text-gray-900 dark:text-white">{{ $certification->title }}</h4>
+                            <p class="text-gray-700 dark:text-indigo-500 text-sm font-medium mb-1">{{
+                                $certification->institution }}</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400 pb-2">{{ $certification->date_obtained }}
+                            </p>
+
+                            <flux:modal.trigger name="certificat{{ $certification->id }}">
+                                <flux:button icon="eye" size="xs">Voir la certification</flux:button>
+                            </flux:modal.trigger>
+                            <flux:modal name="certificat{{ $certification->id }}" class="md:w-[950px]" wire:ignore.self>
+                                <div class="space-y-6">
+                                    <div>
+                                        <flux:heading size="lg">{{ $certification->title }}</flux:heading>
+                                    </div>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">
+                                        {{ $certification->institution }} — {{ $certification->date_obtained }}
+                                    </p>
+                                    <a href="{{ $certification->credential_url }}" target="_blank">{{
+                                        $certification->credential_url }}</a>
+                                    <div class="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+
+                                        @if(Str::endsWith($certification->file_path, ['.jpg', '.jpeg', '.png']))
+                                        <!-- Image -->
+                                        <img src="{{ asset('storage/'.$certification->file_path) }}" class="w-full" />
+                                        @else
+                                        <!-- PDF Viewer -->
+                                        <iframe src="{{ asset('storage/'.$certification->file_path) }}"
+                                            class="w-full h-[500px] rounded-lg" frameborder="0">
+                                        </iframe>
+                                        @endif
+
+                                    </div>
+                                </div>
+                            </flux:modal>
                         </div>
-                        <div
-                            class="p-6 rounded-xl text-center transition-all hover:-translate-y-1 bg-white border border-gray-200 hover:shadow-xl dark:bg-slate-900 dark:border-gray-800">
-                            <h4 class="font-bold mb-2 text-gray-900 dark:text-white">Meta Backend Developer</h4>
-                            <p class="text-gray-700 dark:text-indigo-500 text-sm font-medium mb-1">Coursera</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">2025</p>
-                        </div>
-                        <div
-                            class="p-6 rounded-xl text-center transition-all hover:-translate-y-1 bg-white border border-gray-200 hover:shadow-xl dark:bg-slate-900 dark:border-gray-800">
-                            <h4 class="font-bold mb-2 text-gray-900 dark:text-white">Google Cybersecurity</h4>
-                            <p class="text-gray-700 dark:text-indigo-500 text-sm font-medium mb-1">Coursera</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">2025</p>
-                        </div>
-                        <div
-                            class="p-6 rounded-xl text-center transition-all hover:-translate-y-1 bg-white border border-gray-200 hover:shadow-xl dark:bg-slate-900 dark:border-gray-800">
-                            <h4 class="font-bold mb-2 text-gray-900 dark:text-white">Hashgraph Developer Course</h4>
-                            <p class="text-gray-700 dark:text-indigo-500 text-sm font-medium mb-1">Hedera</p>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">2025</p>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -305,37 +402,47 @@
                             </form>
                         </div>
 
-                        <div class="space-y-4">
+                        <div class="space-y-6">
                             <div
-                                class="p-4 bg-gray-50 border border-gray-200 rounded-lg dark:bg-slate-900 dark:border-gray-700">
-                                <h3 class="font-semibold text-lg text-gray-900 dark:text-white">Réseaux sociaux</h3>
-                                <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Vous pouvez aussi me joindre
-                                    directement via les informations suivantes :</p>
-                                <ul class="mt-3 space-y-4 text-sm text-gray-700 dark:text-gray-300">
-                                    <li class="flex items-center gap-3">
-                                        <flux:icon.envelope />
-                                        <a href="mailto:mbd@example.com"
-                                            class="text-gray-900 hover:text-gray-700 dark:text-indigo-400 dark:hover:text-indigo-300">bobobonkon25@gmail.com</a>
-                                    </li>
-                                    <li class="flex items-center gap-3">
-                                        <flux:icon.phone />
-                                        <a href="tel:+33123456789"
-                                            class="text-gray-900 hover:text-gray-700 dark:text-indigo-400 dark:hover:text-indigo-300">+224
-                                            625 08 11 46</a>
-                                    </li>
-                                    <li class="flex items-center gap-3">
+                                class="p-6 bg-gray-50 border border-gray-200 rounded-lg dark:bg-slate-900 dark:border-gray-700">
+                                <h3 class="font-semibold text-lg text-gray-900 dark:text-white mb-3">Contact direct</h3>
+                                <div class="flex flex-col gap-3">
+                                    <a href="mailto:{{ $about->email }}"
+                                        class="flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-800/50">
+                                        <flux:icon.envelope /> {{ $about->email }}
+                                    </a>
+                                    <a href="tel:{{ $about->phone }}"
+                                        class="flex items-center gap-2 px-4 py-2 rounded-lg bg-indigo-50 text-indigo-700 hover:bg-indigo-100 dark:bg-indigo-900/30 dark:text-indigo-300 dark:hover:bg-indigo-800/50">
+                                        <flux:icon.phone /> {{ $about->phone }}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div
+                                class="p-6 bg-gray-50 border border-gray-200 rounded-lg dark:bg-slate-900 dark:border-gray-700">
+                                <h3 class="font-semibold text-lg text-gray-900 dark:text-white mb-3">Retrouvons-nous en
+                                    ligne</h3>
+                                <div class="flex flex-wrap gap-3">
+                                    <a href="{{ $about->linkedin_url }}" target="_blank"
+                                        class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-white hover:bg-gray-900 transition">
                                         <flux:icon.linkedin />
-                                        <a href="https://www.linkedin.com/in/mamadou-bobo-diallo-5a04a3310/"
-                                            class="text-gray-900 hover:text-gray-700 dark:text-indigo-400 dark:hover:text-indigo-300">https://www.linkedin.com/in/mamadou-bobo-diallo-5a04a3310/</a>
-                                    </li>
-                                    <li class="flex items-center gap-3">
+                                    </a>
+                                    <a href="{{ $about->facebook_url }}" target="_blank"
+                                        class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-white hover:bg-gray-900 transition">
+                                        <flux:icon.facebook />
+                                    </a>
+                                    <a href="{{ $about->github_url }}" target="_blank"
+                                        class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-white hover:bg-gray-900 transition">
                                         <flux:icon.github />
-                                        <a href="https://github.com/MBD1236"
-                                            class="text-gray-900 hover:text-gray-700 dark:text-indigo-400 dark:hover:text-indigo-300">https://github.com/MBD1236</a>
-                                    </li>
-                                </ul>
+                                    </a>
+                                    <a href="mailto:{{ $about->email }}"
+                                        class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-white hover:bg-gray-900 transition">
+                                        <flux:icon.envelope />
+                                    </a>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -348,8 +455,8 @@
             <div class="grid md:grid-cols-3 gap-12 mb-12">
                 <div>
                     <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Mamadou Bobo DIALLO</h3>
-                    <p class="text-sm leading-relaxed mb-6 text-gray-600 dark:text-gray-400">Développeur Front-End &
-                        Mobile passionné par la création de solutions numériques innovantes et utiles.</p>
+                    <p class="text-sm leading-relaxed mb-6 text-gray-600 dark:text-gray-400">Développeur créatif dédié à
+                        la conception d’expériences digitales utiles, modernes et intuitives.</p>
                 </div>
                 <!-- Reste du footer -->
                 <div>
@@ -370,8 +477,8 @@
                 </div>
                 <div>
                     <h4 class="text-lg font-bold mb-4 text-gray-900 dark:text-white">Me suivre</h4>
-                    <div class="flex gap-3"><a href="https://github.com/MBD1236" target="_blank"
-                            rel="noopener noreferrer" aria-label="GitHub"
+                    <div class="flex gap-3"><a href="{{ $about->github_url }}" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub"
                             class="p-3 rounded-xl transition-all duration-300 hover:-translate-y-1 bg-slate-800 text-gray-200 hover:bg-slate-700 hover:text-white"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -380,8 +487,8 @@
                                     d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4">
                                 </path>
                                 <path d="M9 18c-4.51 2-5-2-7-2"></path>
-                            </svg></a><a href="https://linkedin.com/in/foula-fofana-1769782a5" target="_blank"
-                            rel="noopener noreferrer" aria-label="LinkedIn"
+                            </svg></a><a href="{{ $about->linkedin_url }}" target="_blank" rel="noopener noreferrer"
+                            aria-label="LinkedIn"
                             class="p-3 rounded-xl transition-all duration-300 hover:-translate-y-1 bg-slate-800 text-gray-400 hover:bg-slate-700 hover:text-white"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -391,7 +498,7 @@
                                 </path>
                                 <rect width="4" height="12" x="2" y="9"></rect>
                                 <circle cx="4" cy="4" r="2"></circle>
-                            </svg></a><a href="mailto:fofanafoula70@gmail.com" aria-label="Email"
+                            </svg></a><a href="mailto:{{ $about->email }}" aria-label="Email"
                             class="p-3 rounded-xl transition-all duration-300 hover:-translate-y-1 bg-slate-800 text-gray-400 hover:bg-slate-700 hover:text-white"><svg
                                 xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -411,7 +518,7 @@
         </div>
     </footer>
 
-   <script>
+    <script>
         try {
             document.documentElement.style.scrollBehavior = 'smooth';
 
@@ -450,11 +557,3 @@
         }
     </script>
 </div>
-
-
-
-
-
-
-
-

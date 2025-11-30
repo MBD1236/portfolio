@@ -10,4 +10,10 @@ use Illuminate\Database\Eloquent\Relations\Pivot;
 class ProjectTechnology extends Pivot
 {
     protected $table = 'project_technologies';
+
+
+    protected $fillable = [
+        'project_id',
+        'technology_id',
+    ];
 }

@@ -2,8 +2,15 @@
 
 namespace App\Livewire\Portfolio;
 
-use Livewire\Component;
+use App\Models\About;
+use App\Models\Certification;
+use App\Models\Education;
+use App\Models\Experience;
+use App\Models\Project;
+use App\Models\ProjectTechnology;
+use App\Models\Skill;
 use Livewire\Attributes\Layout;
+use Livewire\Component;
 
 
 class Index extends Component
@@ -16,6 +23,15 @@ class Index extends Component
     public string $contact_name = '';
     public string $contact_email = '';
     public string $contact_message = '';
+
+
+    public About $about;
+    
+    public function mount()
+    {
+        // Charge l’unique entrée about (ou crée une entrée vide si non trouvée)
+        $this->about = About::first();
+    }
 
     public function navigate($page)
     {
@@ -49,10 +65,19 @@ class Index extends Component
         $this->contact_message = '';
     }
 
-    
+    // Recupérer toutes les données de mes tables
+
     #[Layout("components.layouts.base")]
     public function render()
     {
-        return view('livewire.portfolio.index');
+        return view('livewire.portfolio.index', [
+            'projets' => Project::with('technologies')->get(),
+            'competences' => Skill::all(),
+            'certifications' => Certification::all(),
+            'technoProjets' => ProjectTechnology::all(),
+            'about' => $this->about,
+            'educations' => Education::all(),
+            'experiences' => Experience::all(),
+        ]);
     }
 }
