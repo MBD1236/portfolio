@@ -153,7 +153,7 @@
                         {{ $experience->end_date }}
                     </td>
                     <td class="px-6 py-2">
-                        {{ $experience->description }}
+                        {{ Str::limit($experience->description, 30) }}
                     </td>
 
                     <td class="px-6 py-2 flex justify-start gap-1">

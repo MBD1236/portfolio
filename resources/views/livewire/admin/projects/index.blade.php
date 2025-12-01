@@ -170,7 +170,7 @@
             <div>
                 <flux:heading size="lg">Associer à une techno</flux:heading>
             </div>
-            <flux:input wire:model='project_id' label="Projet" placeholder="Projet" value="{{ $projet->id }}" />
+            <flux:input wire:model='project_id' label="Projet" placeholder="Projet" value="{{ $projet->id ?? '' }}" />
             <flux:select wire:model='technology_id' label="Technologie">
                 @foreach ($technologies as $technologie)
                 <flux:select.option value="0"> Choisir une techno </flux:select.option>

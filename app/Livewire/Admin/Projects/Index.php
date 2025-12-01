@@ -72,6 +72,12 @@ class Index extends Component
     }
     public function addTechno()
     {
+        // Protect against missing project_id (no selection)
+        if (empty($this->project_id)) {
+            session()->flash('danger', 'Aucun projet sélectionné. Veuillez sélectionner un projet avant d\'associer une technologie.');
+            return;
+        }
+
         $data = $this->validate($this->TechnoRules());
         ProjectTechnology::create($data);
         session()->flash('success', 'Projet associé à cette techno.');
