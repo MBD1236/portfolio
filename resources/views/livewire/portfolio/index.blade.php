@@ -128,7 +128,10 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center mb-8">
                     <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">À propos de moi</h2>
-                    <p>{{ $about->bio }}</p>
+                    <p class="max-w-4xl mx-auto text-lg leading-relaxed text-justify text-gray-700 dark:text-gray-300">
+                        {{ $about->bio }}
+                    </p>
+
                 </div>
             </div>
         </section>
@@ -298,7 +301,9 @@
                 <div class="mb-20">
                     <div class="text-center mb-8">
                         <h2 class="text-3xl md:text-4xl mb-4 text-gray-900 dark:text-white">Certifications</h2>
-                        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Découvrez les certifications que j’ai obtenues au fil de mes expériences et formations, témoins de mon engagement et de ma curiosité.</p>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">Découvrez les
+                            certifications que j’ai obtenues au fil de mes expériences et formations, témoins de mon
+                            engagement et de ma curiosité.</p>
                     </div>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                         @foreach ($certifications as $certification)
